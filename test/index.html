@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+    <title></title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc4/angular-material.min.css">
+    <link href="Content/css/style.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-animate.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-aria.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc4/angular-material.min.js"></script>
+</head>
+<body ng-app="app" ng-controller="myCtrl as vm" ng-cloak>
+    <div class="wrap" layout="column" layout-align="start center">
+        <div class="write-message">
+            <form name="postForm">
+                <md-input-container>
+                    <label>Write Text</label>
+                    <input name="post" ng-model="vm.formData.text">
+                </md-input-container>
+                <md-button class="send-but md-raised" ng-click="vm.postMessage()"> Send </md-button>
+            </form>
+        </div>
+        <div class="list-message">
+            <md-list flex>
+                <md-subheader class="md-no-sticky">Message</md-subheader>
+                <md-divider></md-divider>
+                <md-list-item class="md-3-line" ng-repeat="message in vm.messages | orderBy:'-creationDate'" ng-click="null">
+                    <div class="md-list-item-text" layout="column">
+                        <p class="post-message">{{ message.text }}</p>
+                        <p class="post-date">{{ message.creationDate | date:'MM/dd/yyyy HH:mm:ss' }}</p>
+                    </div>
+                    <md-divider></md-divider>
+                </md-list-item>
+            </md-list>
+        </div>
+    </div>
+
+    <script src="Content/js/app.js"></script>
+    <script src="Content/js/controller/myCtrl.js"></script>
+    <script src="Content/js/services/postFactory.js"></script>
+</body>
+</html>

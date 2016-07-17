@@ -1,0 +1,38 @@
+﻿.write-message, .list-message {
+    margin-top: 20px;
+    width: 70%;
+}
+
+form:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+md-input-container {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.md-errors-spacer {
+    display: none;
+}
+
+.md-button.send-but {
+    background-color: rgb(89, 187, 89) !important;
+    color: white;
+    float: right;
+    margin: 0;
+}
+
+md-list-item p {
+    word-wrap: break-word;
+}
+
+md-list-item p.post-message {
+    font-weight: 700 !important;
+}
+
+md-list-item p.post-date {
+    font-size: 10px !important;
+}
